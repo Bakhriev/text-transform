@@ -1,0 +1,91 @@
+.pt-40 {
+	padding-top: 40px;
+}
+
+.playground {
+	// .playground__actions
+
+	&__actions {
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	// .playground__btn
+
+	&__btn {
+		border: 1px solid gray;
+		border-radius: 10px;
+		padding: 10px 15px;
+		outline-offset: 5px;
+		transition:
+			color 100ms,
+			background-color 100ms;
+
+		@include hover {
+			outline: 1px solid gray;
+		}
+
+		&:focus-visible {
+			outline: 1px solid gray;
+		}
+
+		&.active {
+			color: #fff;
+			background-color: #222;
+		}
+
+		&:active {
+			scale: 0.97;
+		}
+	}
+
+	// .playground__items
+
+	&__items {
+		display: flex;
+		gap: 20px;
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
+	}
+}
+
+.playground-item {
+	width: 100%;
+	// .playground-item__header
+
+	&__header {
+	}
+
+	// .playground-item__title
+
+	&__title {
+		margin-bottom: 10px;
+		font-size: 22px;
+	}
+
+	// .playground-item__body
+
+	&__body {
+	}
+
+	// .playground-item__field
+
+	&__field {
+		resize: none;
+		width: 100%;
+		height: 400px;
+		padding: 10px;
+		border-radius: 8px;
+		font-size: 20px;
+		box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+		border: 1px solid #a8a6a6;
+		&:focus-visible {
+			outline: none;
+			border-color: #222;
+		}
+	}
+}
