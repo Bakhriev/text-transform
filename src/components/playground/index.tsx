@@ -32,7 +32,7 @@ export const Playground = () => {
 	};
 
 	return (
-		<div className='pt-40'>
+		<div className='playground-section'>
 			<div className='container'>
 				<div className='playground'>
 					<div className='playground__actions'>
