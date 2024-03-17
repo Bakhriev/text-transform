@@ -8,8 +8,8 @@ export const Playground = () => {
 	const [outputText, setOutputText] = useState('');
 	const [currentFilter, setCurrentFilter] = useState('lowercase');
 	const [isCopied, setIsCopied] = useState(false);
-	const toastTimeoutRef = useRef(null);
-	const inputRef = useRef(null);
+	const toastTimeoutRef = useRef<number | null>(null);
+	const inputRef = useRef<HTMLTextAreaElement>(null);
 
 	useEffect(() => {
 		const filterAndTransfer = () => {
@@ -23,7 +23,7 @@ export const Playground = () => {
 			}
 		};
 		filterAndTransfer();
-		inputRef.current.focus();
+		inputRef.current?.focus();
 	}, [currentFilter, inputText]);
 
 	const copyToClipboard = () => {
