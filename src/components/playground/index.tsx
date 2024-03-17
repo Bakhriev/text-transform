@@ -1,8 +1,4 @@
-import {
-	IoClipboardOutline,
-	IoCheckmark,
-	IoCloseOutline,
-} from 'react-icons/io5';
+import { IoClipboardOutline, IoCloseOutline } from 'react-icons/io5';
 
 import { useEffect, useRef, useState } from 'react';
 import { Tooltip } from '../tooltip';
@@ -20,14 +16,30 @@ export const Playground = () => {
 			if (currentFilter === '') setInputText(inputText);
 
 			if (currentFilter === 'lowercase') {
-				setInputText(inputText.toLowerCase());
+				setInputText(inputText?.toLowerCase());
+				setCurrentFilter('');
 			}
 			if (currentFilter === 'uppercase') {
-				setInputText(inputText.toUpperCase());
+				setInputText(inputText?.toUpperCase());
+				setCurrentFilter('');
+			}
+			if (currentFilter === 'capitalize') {
+				const text = inputText
+					.trim()
+					.toLowerCase()
+					.split(' ')
+					.map(elem => {
+						return elem.charAt(0).toUpperCase() + elem.slice(1);
+					});
+
+				const result = text.join(' ');
+
+				setInputText(result);
+				setCurrentFilter('');
 			}
 		};
 		filterAndTransfer();
-	}, [currentFilter, inputText]);
+	}, [currentFilter]);
 
 	const clearField = () => {
 		setInputText('');
@@ -66,15 +78,21 @@ export const Playground = () => {
 						<div className='playground__actions'>
 							<button
 								onClick={() => FilterChange('lowercase')}
-								className={`playground__btn btn-reset ${currentFilter === 'lowercase' ? 'active' : ''}`}
+								className='playground__btn btn-reset'
 							>
 								lowercase
 							</button>
 							<button
 								onClick={() => FilterChange('uppercase')}
-								className={`playground__btn text-uppercase btn-reset ${currentFilter === 'uppercase' ? 'active' : ''}`}
+								className='playground__btn btn-reset'
 							>
 								uppercase
+							</button>
+							<button
+								onClick={() => FilterChange('capitalize')}
+								className='playground__btn btn-reset'
+							>
+								Capitalize
 							</button>
 						</div>
 						<div className='playground__items'>
