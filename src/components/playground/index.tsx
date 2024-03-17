@@ -27,8 +27,9 @@ export const Playground = () => {
 	}, [currentFilter, inputText]);
 
 	const copyToClipboard = () => {
+		navigator.clipboard.writeText(outputText);
+
 		if (!isCopied) {
-			navigator.clipboard.writeText(outputText);
 			setIsCopied(true);
 		}
 
