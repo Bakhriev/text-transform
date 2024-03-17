@@ -9,7 +9,6 @@ export const Playground = () => {
 	const [currentFilter, setCurrentFilter] = useState('lowercase');
 	const [isCopied, setIsCopied] = useState(false);
 	const toastTimeoutRef = useRef<number | null>(null);
-	const inputRef = useRef<HTMLTextAreaElement>(null);
 
 	useEffect(() => {
 		const filterAndTransfer = () => {
@@ -23,7 +22,6 @@ export const Playground = () => {
 			}
 		};
 		filterAndTransfer();
-		inputRef.current?.focus();
 	}, [currentFilter, inputText]);
 
 	const copyToClipboard = () => {
@@ -86,7 +84,6 @@ export const Playground = () => {
 									<textarea
 										value={inputText}
 										onChange={InputChange}
-										ref={inputRef}
 										className='playground-item__field custom-scrollbar'
 									></textarea>
 								</div>
