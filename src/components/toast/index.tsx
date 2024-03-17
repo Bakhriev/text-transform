@@ -1,5 +1,8 @@
 import { IoCheckmark } from 'react-icons/io5';
-import { IToast } from '../../interfaces';
+
+interface IToast {
+	isActive: boolean;
+}
 
 export const Toast: React.FC<IToast> = ({ isActive }) => {
 	return (
