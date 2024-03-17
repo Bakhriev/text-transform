@@ -33,11 +33,6 @@
 			outline: 1px solid var(--gray);
 		}
 
-		&.active {
-			color: var(--white);
-			background-color: var(--primary);
-		}
-
 		&:active {
 			scale: 0.97;
 		}
