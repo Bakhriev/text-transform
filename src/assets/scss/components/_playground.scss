@@ -21,6 +21,7 @@
 		border-radius: 10px;
 		padding: 10px 15px;
 		outline-offset: 5px;
+		color: var(--black);
 		transition:
 			color 100ms,
 			background-color 100ms;
@@ -58,6 +59,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+		gap: 10px;
 	}
 
 	// .playground-item__title
@@ -84,9 +86,13 @@
 		font-size: 20px;
 		box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 		border: 1px solid var(--gray);
+		background-color: var(--white);
+		&::placeholder {
+			color: var(--gray);
+		}
 		&:focus-visible {
 			outline: none;
-			border-color: var(--primary);
+			border-color: var(--gray);
 		}
 	}
 }

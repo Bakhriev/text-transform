@@ -1,10 +1,14 @@
+html {
+	color-scheme: light dark;
+}
+
 body {
 	font: 400 16px/1.15 var(--font-family);
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-	background-color: #f9fafb;
-	background-image: linear-gradient(#e5e7eb 1px, #0000 0),
-		linear-gradient(90deg, #e5e7eb 1px, #0000 0);
+	background-color: var(--app-bg);
+	background-image: linear-gradient(var(--gradient-bg) 1px, rgba(0, 0, 0, 0) 0),
+		linear-gradient(90deg, var(--gradient-bg) 1px, rgba(0, 0, 0, 0) 0);
 	background-size: 100px 100px;
 }
 
@@ -121,5 +125,28 @@ body {
 		&::after {
 			top: -7px;
 		}
+	}
+}
+
+svg {
+	stroke: var(--black);
+}
+
+.theme-toggle svg {
+	fill: var(--black);
+}
+
+.theme-toggle {
+	width: 40px;
+	height: 40px;
+	display: grid;
+	place-items: center;
+	border-radius: 10px;
+	@include hover {
+		background-color: var(--gradient-bg);
+	}
+
+	&:active {
+		background-color: var(--gradient-bg);
 	}
 }

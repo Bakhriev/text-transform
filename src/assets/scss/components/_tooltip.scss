@@ -16,11 +16,11 @@
 	border-radius: 10px;
 	transition: background-color 100ms ease-in-out;
 	@include hover {
-		background-color: #e2dede;
+		background-color: var(--gradient-bg);
 	}
 
 	&:active {
-		background-color: #cfcdcd;
+		background-color: var(--gradient-bg);
 	}
 }
 
@@ -38,7 +38,7 @@
 	font-size: 14px;
 	line-height: 200%;
 	color: #fff;
-	background: #222;
+	background: var(--app-bg);
 	opacity: 0;
 	visibility: hidden;
 	border-radius: 10px;

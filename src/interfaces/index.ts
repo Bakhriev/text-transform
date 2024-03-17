@@ -12,7 +12,3 @@ export interface ITooltip {
 	handleClick: (event: MouseEvent<HTMLButtonElement>) => void;
 	text: string;
 }
-
-export interface ToastProps {
-	isActive: boolean;
-}

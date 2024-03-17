@@ -5,4 +5,16 @@
 	--black: #000;
 	--primary: #222;
 	--gray: #808080;
+	--app-bg: #f9fafb;
+	--gradient-bg: #e5e7eb;
+}
+
+.dark {
+	--app-bg: rgb(27, 29, 30);
+	--gradient-bg: #333333;
+
+	--white: #000;
+	--black: #fff;
+	--primary: #222;
+	--gray: #999999;
 }
