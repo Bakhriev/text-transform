@@ -1,31 +1,40 @@
-import { IoClipboardOutline } from 'react-icons/io5';
-import { IoIosCheckmark } from 'react-icons/io';
+import {
+	IoClipboardOutline,
+	IoCheckmark,
+	IoCloseOutline,
+} from 'react-icons/io5';
 
 import { useEffect, useRef, useState } from 'react';
+import { Tooltip } from '../tooltip';
+import { TextArea } from '../textarea';
+import { Toast } from '../toast';
 
 export const Playground = () => {
 	const [inputText, setInputText] = useState('');
-	const [outputText, setOutputText] = useState('');
-	const [currentFilter, setCurrentFilter] = useState('lowercase');
+	const [currentFilter, setCurrentFilter] = useState('');
 	const [isCopied, setIsCopied] = useState(false);
 	const toastTimeoutRef = useRef<number | null>(null);
 
 	useEffect(() => {
 		const filterAndTransfer = () => {
-			if (currentFilter === '') setOutputText(inputText);
+			if (currentFilter === '') setInputText(inputText);
 
 			if (currentFilter === 'lowercase') {
-				setOutputText(inputText.toLowerCase());
+				setInputText(inputText.toLowerCase());
 			}
 			if (currentFilter === 'uppercase') {
-				setOutputText(inputText.toUpperCase());
+				setInputText(inputText.toUpperCase());
 			}
 		};
 		filterAndTransfer();
 	}, [currentFilter, inputText]);
 
+	const clearField = () => {
+		setInputText('');
+	};
+
 	const copyToClipboard = () => {
-		navigator.clipboard.writeText(outputText);
+		navigator.clipboard.writeText(inputText);
 
 		if (!isCopied) {
 			setIsCopied(true);
@@ -48,29 +57,22 @@ export const Playground = () => {
 		setInputText(e.target.value);
 	};
 
-	const OutputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		setOutputText(e.target.value);
-	};
-
 	return (
 		<>
-			<div className={`toast ${isCopied && 'active'}`}>
-				<div className='toast-content'>Copied to clipboard</div>
-				<IoIosCheckmark size='20' />
-			</div>
+			<Toast isActive={isCopied} />
 			<div className='playground-section'>
 				<div className='container'>
 					<div className='playground'>
 						<div className='playground__actions'>
 							<button
 								onClick={() => FilterChange('lowercase')}
-								className={`playground__btn btn-reset ${currentFilter === 'lowercase' && 'active'}`}
+								className={`playground__btn btn-reset ${currentFilter === 'lowercase' ? 'active' : ''}`}
 							>
 								lowercase
 							</button>
 							<button
 								onClick={() => FilterChange('uppercase')}
-								className={`playground__btn text-uppercase btn-reset ${currentFilter === 'uppercase' && 'active'}`}
+								className={`playground__btn text-uppercase btn-reset ${currentFilter === 'uppercase' ? 'active' : ''}`}
 							>
 								uppercase
 							</button>
@@ -78,38 +80,25 @@ export const Playground = () => {
 						<div className='playground__items'>
 							<div className='playground-item'>
 								<div className='playground-item__header'>
-									<div className='playground-item__title'>Input</div>
+									<Tooltip
+										handleClick={copyToClipboard}
+										icon={IoClipboardOutline}
+										iconSize={20}
+										text='Copy to clipboard'
+									/>
+									<Tooltip
+										handleClick={clearField}
+										icon={IoCloseOutline}
+										iconSize={25}
+										text='Clear field'
+									/>
 								</div>
 								<div className='playground-item__body'>
-									<textarea
+									<TextArea
 										value={inputText}
-										onChange={InputChange}
-										className='playground-item__field custom-scrollbar'
-									></textarea>
-								</div>
-							</div>
-							<div className='playground-item'>
-								<div className='playground-item__header'>
-									<div className='playground-item__title'>Output</div>
-									<div className='playground-item__tools'>
-										<div className='tooltip'>
-											<button
-												onClick={copyToClipboard}
-												className='tooltip__btn btn-reset'
-												title='Copy to clipboard'
-											>
-												<IoClipboardOutline />
-											</button>
-											<span className='tooltip__txt'>Copy to clipboard</span>
-										</div>
-									</div>
-								</div>
-								<div className='playground-item__body'>
-									<textarea
-										value={outputText}
-										onChange={OutputChange}
-										className='playground-item__field custom-scrollbar'
-									></textarea>
+										handleChange={InputChange}
+										placeholder='Some text...'
+									/>
 								</div>
 							</div>
 						</div>

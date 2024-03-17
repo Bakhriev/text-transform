@@ -59,10 +59,10 @@
 	// .playground-item__header
 
 	&__header {
+		margin-bottom: 5px;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		height: 50px;
+		justify-content: flex-end;
 	}
 
 	// .playground-item__title
