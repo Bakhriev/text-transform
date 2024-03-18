@@ -33,12 +33,12 @@
 	padding: 5px 10px;
 	width: max-content;
 	max-width: 370px;
-	box-shadow: 0 0 29px rgb(0 0 0 / 32%);
+	box-shadow: 0 0 5px rgb(0 0 0 / 32%);
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 200%;
-	color: #fff;
-	background: var(--app-bg);
+	color: var(--black);
+	background: var(--gradient-bg);
 	opacity: 0;
 	visibility: hidden;
 	border-radius: 10px;

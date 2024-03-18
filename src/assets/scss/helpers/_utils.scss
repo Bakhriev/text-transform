@@ -21,6 +21,9 @@
 	color: inherit;
 	background-color: transparent;
 	cursor: pointer;
+	&:active {
+		scale: 0.97;
+	}
 }
 
 .list-reset {
