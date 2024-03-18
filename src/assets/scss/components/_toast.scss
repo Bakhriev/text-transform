@@ -7,16 +7,20 @@
 
 	bottom: 20px;
 	right: 20px;
-	background-color: #333;
-	color: #fff;
+	background-color: var(--gradient-bg);
+	color: var(--black);
 	padding: 10px;
 	border-radius: 5px;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: max-content;
 	height: max-content;
+
+	svg {
+		stroke: var(--black);
+	}
 
 	transition:
 		visibility 150ms ease-in-out,
