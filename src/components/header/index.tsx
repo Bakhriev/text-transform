@@ -1,32 +1,7 @@
 import { TbTextRecognition } from 'react-icons/tb';
 import { CiDark, CiLight } from 'react-icons/ci';
-import { useEffect, useState } from 'react';
 
-export const Header = () => {
-	const [theme, setTheme] = useState('');
-
-	useEffect(() => {
-		const currentTheme = localStorage.getItem('theme') ?? 'light';
-		setTheme(currentTheme);
-
-		document.body.classList.remove('dark');
-		document.body.classList.remove('light');
-		document.body.classList.add(currentTheme);
-	}, [theme]);
-
-	const toggleTheme = () => {
-		if (theme === 'light') {
-			setTheme('dark');
-			localStorage.setItem('theme', 'dark');
-			return;
-		}
-		if (theme === 'dark') {
-			setTheme('light');
-			localStorage.setItem('theme', 'light');
-			return;
-		}
-	};
-
+export const Header = ({ theme, toggleTheme }) => {
 	return (
 		<div className='header'>
 			<div className='header__container container'>

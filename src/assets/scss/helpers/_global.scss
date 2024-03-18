@@ -5,17 +5,17 @@ html {
 body {
 	font: 400 16px/1.15 var(--font-family);
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-	background-color: var(--app-bg);
-	background-image: linear-gradient(var(--gradient-bg) 1px, rgba(0, 0, 0, 0) 0),
-		linear-gradient(90deg, var(--gradient-bg) 1px, rgba(0, 0, 0, 0) 0);
-	background-size: 100px 100px;
 }
 
 .app {
 	overflow: hidden;
 
 	min-height: 100vh;
+
+	background-color: var(--app-bg);
+	background-image: linear-gradient(var(--gradient-bg) 1px, rgba(0, 0, 0, 0) 0),
+		linear-gradient(90deg, var(--gradient-bg) 1px, rgba(0, 0, 0, 0) 0);
+	background-size: 100px 100px;
 }
 
 .main {
